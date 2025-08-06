@@ -1,0 +1,10 @@
+summary: ''
+description: ''
+lock: '!inline u/admin/variable_opener_script.script.lock'
+concurrency_time_window_s: 0
+kind: script
+schema:
+  $schema: 'https://json-schema.org/draft/2020-12/schema'
+  type: object
+  properties: {}
+  required: []

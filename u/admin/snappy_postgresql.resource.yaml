@@ -1,0 +1,8 @@
+description: ''
+value:
+  dbname: windmill
+  host: 127.0.0.1
+  password: '$var:u/admin/snappy_postgresql'
+  root_certificate_pem: ''
+  user: postgres
+resource_type: postgresql
