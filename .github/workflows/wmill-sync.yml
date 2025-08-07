@@ -30,7 +30,7 @@ jobs:
 
       - name: Add the Windmill workspace to CLI
         run: |
-          wmill workspace add ${{ steps.workspace.outputs.workspace }} ${{ steps.workspace.outputs.workspace }} --token ${{ secrets.WMILL_TOKEN }} --base-url ${{ secrets.WMILL_BASE_URL }}
+          wmill workspace add ${{ steps.workspace.outputs.workspace }} ${{ steps.workspace.outputs.workspace }} ${{ secrets.WMILL_BASE_URL }} --token ${{ secrets.WMILL_TOKEN }}
           wmill workspace switch ${{ steps.workspace.outputs.workspace }}
 
       - name: Sync to Windmill
