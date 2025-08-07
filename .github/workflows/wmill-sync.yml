@@ -34,4 +34,4 @@ jobs:
           wmill workspace switch ${{ steps.workspace.outputs.workspace }}
 
       - name: Sync to Windmill
-        run: wmill sync push
+        run: wmill sync push --token ${{ secrets.WMILL_TOKEN }} --yes
