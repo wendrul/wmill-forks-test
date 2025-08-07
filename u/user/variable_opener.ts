@@ -11,4 +11,5 @@ import * as wmill from "windmill-client"
 export async function main(
 ) {
   console.log((await wmill.getVariable('u/user/spontaneous_variable')))
+  // this is a new comment that was pushed through git
 }
