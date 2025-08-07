@@ -9,5 +9,6 @@ import * as wmill from "windmill-client"
 
 
 export async function main() {
+  // THis is a new comment 
   (await wmill.getVariable('u/admin/snappy_postgresql'))
 }
