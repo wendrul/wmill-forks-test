@@ -1,6 +1,7 @@
 defaultTs: bun
 includes:
   - f/**
+  - u/**
 excludes: []
 codebases: []
 skipVariables: false
