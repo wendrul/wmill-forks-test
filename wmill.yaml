@@ -2,10 +2,9 @@ defaultTs: bun
 includes:
   - f/**
   - u/**
-  - u/admin/**
 excludes: []
 codebases: []
-skipVariables: false
+skipVariables: true
 skipResources: false
 skipSecrets: true
 skipScripts: false
