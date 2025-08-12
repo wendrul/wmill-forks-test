@@ -2,7 +2,6 @@ defaultTs: bun
 includes:
   - f/**
   - u/**
-  - u/admin/**
 excludes: []
 codebases: []
 skipVariables: false
