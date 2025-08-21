@@ -209,7 +209,7 @@ async function move_to_git_branch(
   use_individual_branch: boolean,
   group_by_folder: boolean,
 ) {
-  const branchName;
+  let branchName;
   if (workspace_id.startsWith("wm-ephemeral-")) {
     branchName = get_fork_branch_name(workspace_id);
   } else {
