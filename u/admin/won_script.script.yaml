@@ -1,0 +1,13 @@
+summary: ''
+description: ''
+lock: '!inline u/admin/won_script.script.lock'
+kind: script
+schema:
+  $schema: 'https://json-schema.org/draft/2020-12/schema'
+  type: object
+  properties:
+    example_input:
+      type: number
+      description: ''
+      default: 3
+  required: []
