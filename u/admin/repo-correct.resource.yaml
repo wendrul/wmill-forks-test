@@ -1,0 +1,9 @@
+description: >-
+  Repository https://github.com/wendrul/wmill-forks-test with permissions
+  fetched using Windmill Github App.
+value:
+  branch: ''
+  folder: ''
+  is_github_app: true
+  url: '$var:u/admin/repo-correct'
+resource_type: git_repository
