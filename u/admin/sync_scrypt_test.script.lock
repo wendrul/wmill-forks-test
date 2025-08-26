@@ -306,9 +306,9 @@
 
     "which-typed-array": ["which-typed-array@1.1.19", "", { "dependencies": { "available-typed-arrays": "^1.0.7", "call-bind": "^1.0.8", "call-bound": "^1.0.4", "for-each": "^0.3.5", "get-proto": "^1.0.1", "gopd": "^1.2.0", "has-tostringtag": "^1.0.2" } }, "sha512-rEvr90Bck4WZt9HHFC4DJMsjvu7x+r6bImz0/BrbWb7A2djJ8hnZMrWnHo9F8ssv0OMErasDhftrfROTyqSDrw=="],
 
-    "windmill-cli": ["windmill-cli@1.530.0", "", { "dependencies": { "@ayonli/jsext": "*", "@deno/shim-deno": "~0.18.0", "diff": "*", "es-main": "*", "esbuild": "*", "express": "*", "get-port": "7.1.0", "jszip": "3.7.1", "minimatch": "*", "open": "*", "ws": "*" }, "bin": { "wmill": "esm/src/main.js" } }, "sha512-AsjXGjPdxE319RDpxaghH15jByIbJi0M3CYoGHIKB+YY6pvJD/UK9R3wb7ACrihg03rAwNAvqgMgQ9u6dLKWXQ=="],
+    "windmill-cli": ["windmill-cli@1.535.0", "", { "dependencies": { "@ayonli/jsext": "*", "@deno/shim-deno": "~0.18.0", "diff": "*", "es-main": "*", "esbuild": "*", "express": "*", "get-port": "7.1.0", "jszip": "3.7.1", "minimatch": "*", "open": "*", "ws": "*" }, "bin": { "wmill": "esm/src/main.js" } }, "sha512-bz+yXZrhGCbGfztDjOGQpLKBsB4hA9mpqbY0a4y2N+9FpYsCIIoNOkry/jzq8BNoTysF8oG4H3jLUkZPnr65/A=="],
 
-    "windmill-client": ["windmill-client@1.530.0", "", {}, "sha512-WyuKJ061iyLLpsB8DyC+q/s140BPSrF6fiHvKB3tZynpZGArX2PPgma5OSpjGECGnW9cnL9A8IUPEefQ9PIHdg=="],
+    "windmill-client": ["windmill-client@1.535.0", "", {}, "sha512-hq7DXGDpwWRa9iKp/Lq3mFwjSApmNVjB6+1J95p1/96f82Gfw1UUpYev5bj0W3pgrDwOdwTNgy3NScmWP9t2Yw=="],
 
     "wrappy": ["wrappy@1.0.2", "", {}, "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ=="],
 

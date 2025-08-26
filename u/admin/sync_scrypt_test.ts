@@ -64,7 +64,7 @@ export async function main(
   // Since we don't modify the resource on the forked workspaces, we have to cosnider the case of
   // a fork of a fork workspace. In that case, the original branch is not stored in the resource
   // settings, but we need to infer it from the workspace id
-  if (parent_workspace_id && parent_workspace_id.startsWith("wm-ephemeral-")) {
+  if (parent_workspace_id && parent_workspace_id.startsWith("wm-forked-")) {
     use_individual_branch = false;
     group_by_folder = false;
     originalBranch = get_fork_branch_name(parent_workspace_id);
@@ -117,8 +117,8 @@ export async function main(
 }
 
 function get_fork_branch_name(w_id: string): string {
-  if (w_id.startsWith("wm-ephemeral-")) {
-    return w_id.replace("wm-ephemeral-", "wm-ephemeral/");
+  if (w_id.startsWith("wm-forked-")) {
+    return w_id.replace("wm-forked-", "wm-forked/");
   }
   return w_id;
 }
@@ -207,7 +207,7 @@ async function move_to_git_branch(
   group_by_folder: boolean,
 ) {
   let branchName;
-  if (workspace_id.startsWith("wm-ephemeral-")) {
+  if (workspace_id.startsWith("wm-forked-")) {
     branchName = get_fork_branch_name(workspace_id);
   } else {
     if (!use_individual_branch || path_type === "user" || path_type === "group") {
