@@ -13,4 +13,4 @@ skipApps: false
 skipFolders: false
 includeSchedules: false
 includeTriggers: false
-git_branches: {}
+gitBranches: {}
