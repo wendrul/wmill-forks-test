@@ -1,0 +1,79 @@
+summary: ''
+description: ''
+lock: '!inline u/admin/sync_scrypt_test.script.lock'
+kind: script
+schema:
+  $schema: 'https://json-schema.org/draft/2020-12/schema'
+  type: object
+  properties:
+    commit_msg:
+      type: string
+      description: ''
+      default: null
+      originalType: string
+    group_by_folder:
+      type: boolean
+      description: ''
+      default: false
+    parent_path:
+      type: string
+      description: ''
+      default: null
+      originalType: string
+    parent_workspace_id:
+      type: string
+      description: ''
+      default: null
+      originalType: string
+    path:
+      type: string
+      description: ''
+      default: null
+      originalType: string
+    path_type:
+      type: string
+      description: ''
+      default: null
+      enum:
+        - script
+        - flow
+        - app
+        - folder
+        - resource
+        - variable
+        - resourcetype
+        - schedule
+        - user
+        - group
+        - httptrigger
+        - websockettrigger
+        - kafkatrigger
+        - natstrigger
+        - postgrestrigger
+        - mqtttrigger
+        - sqstrigger
+        - gcptrigger
+      originalType: enum
+    repo_url_resource_path:
+      type: string
+      description: ''
+      default: null
+      originalType: string
+    skip_secret:
+      type: boolean
+      description: ''
+      default: true
+    use_individual_branch:
+      type: boolean
+      description: ''
+      default: false
+    workspace_id:
+      type: string
+      description: ''
+      default: null
+      originalType: string
+  required:
+    - workspace_id
+    - repo_url_resource_path
+    - path_type
+    - commit_msg

@@ -1,0 +1,25 @@
+summary: ''
+description: ''
+lock: '!inline u/admin/resilient_script.script.lock'
+kind: script
+schema:
+  $schema: 'https://json-schema.org/draft/2020-12/schema'
+  type: object
+  properties:
+    nested:
+      type: object
+      description: ''
+      default: null
+      properties:
+        foo:
+          type: string
+          description: ''
+          originalType: string
+    x:
+      type: string
+      description: ''
+      default: null
+      originalType: string
+  required:
+    - x
+    - nested
