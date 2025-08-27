@@ -10,7 +10,7 @@ on:
 
 jobs:
   sync:
-    environment: windmill
+    environment: wm-cli
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout
