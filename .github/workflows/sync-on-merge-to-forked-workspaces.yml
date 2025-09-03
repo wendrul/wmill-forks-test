@@ -1,4 +1,4 @@
-name: Windmill Ephemeral workspaces sync
+name: Windmill Forked workspaces sync
 
 on:
   push:
