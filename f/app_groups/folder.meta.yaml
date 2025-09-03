@@ -2,4 +2,6 @@ summary: null
 display_name: App Groups
 extra_perms:
   g/all: false
-owners: []
+  u/admin: true
+owners:
+  - u/admin

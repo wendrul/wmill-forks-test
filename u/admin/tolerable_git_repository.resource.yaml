@@ -1,9 +1,0 @@
-description: >-
-  Repository https://github.com/wendrul/forks-test-2 with permissions fetched
-  using Windmill Github App.
-value:
-  branch: ''
-  folder: ''
-  is_github_app: true
-  url: '$var:u/admin/tolerable_git_repository'
-resource_type: git_repository
