@@ -6,7 +6,7 @@ on:
       - 'wm-forked/**'
 jobs:
   sync:
-    environment: windmill
+    environment: wmill-cli
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout
