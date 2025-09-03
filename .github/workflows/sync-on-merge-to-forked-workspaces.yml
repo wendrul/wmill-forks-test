@@ -40,4 +40,4 @@ jobs:
         if: steps.check_message.outputs.skip != 'skip'
         run: |
           npm install -g windmill-cli@1.393.3
-          wmill sync push --yes --skip-variables --skip-secrets --skip-resources --workspace ${{ steps.workspace.outputs.workspace }} --token ${{ secrets.WMILL_TOKEN }} --base-url ${{ vars.WMILL_URL }}
+          wmill sync push --yes --skip-variables --skip-secrets --skip-resources --workspace ${{ steps.workspace.outputs.workspace }} --token ${{ secrets.WMILL_TOKEN }} --base-url ${{ vars.WMILL_BASE_URL }}
