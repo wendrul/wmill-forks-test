@@ -1,3 +1,3 @@
 export async function main() {
-  console.log("Hey thereee!")
+  console.log("2 Hey!")
 }
