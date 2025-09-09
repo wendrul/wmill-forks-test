@@ -13,4 +13,8 @@ skipApps: false
 skipFolders: false
 includeSchedules: false
 includeTriggers: false
-gitBranches: {}
+gitBranches:
+  prod:
+    overrides: {}
+    baseUrl: 'http://localhost:8000/'
+    workspaceId: wwwww
