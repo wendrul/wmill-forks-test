@@ -34,6 +34,7 @@ export async function main(
   settings_json?: string, // JSON settings from UI for new CLI approach
   use_promotion_overrides?: boolean // Use promotionOverrides from repo branch when "use separate branch" toggle is selected
 ) {
+  console.log("WE are in the new oneeee");
   let safeDirectoryPath: string | undefined;
   console.log("DEBUG: Starting main function", {
     workspace_id,

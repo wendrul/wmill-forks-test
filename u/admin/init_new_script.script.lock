@@ -1,5 +1,3 @@
-
-
 {
   "dependencies": {
     "windmill-client": "latest",
@@ -264,7 +262,7 @@
 
     "router": ["router@2.2.0", "", { "dependencies": { "debug": "^4.4.0", "depd": "^2.0.0", "is-promise": "^4.0.0", "parseurl": "^1.3.3", "path-to-regexp": "^8.0.0" } }, "sha512-nLTrUKm2UyiL7rlhapu/Zl45FwNgkZGaCpZbIHajDYgwlJCOzLSk+cIPAnsEqV955GjILJnKbdQC1nVPz+gAYQ=="],
 
-    "run-applescript": ["run-applescript@7.0.0", "", {}, "sha512-9by4Ij99JUr/MCFBUkDKLWK3G9HVXmabKz9U5MlIAIuvuzkiOicRYs8XJLxX+xahD+mLiiCYDqF9dKAgtzKP1A=="],
+    "run-applescript": ["run-applescript@7.1.0", "", {}, "sha512-DPe5pVFaAsinSaV6QjQ6gdiedWDcRCbUuiQfQa2wmWV7+xC9bGulGI8+TdRmoFkAPaBXk8CrAbnlY2ISniJ47Q=="],
 
     "safe-buffer": ["safe-buffer@5.2.1", "", {}, "sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ=="],
 
@@ -312,9 +310,9 @@
 
     "which-typed-array": ["which-typed-array@1.1.19", "", { "dependencies": { "available-typed-arrays": "^1.0.7", "call-bind": "^1.0.8", "call-bound": "^1.0.4", "for-each": "^0.3.5", "get-proto": "^1.0.1", "gopd": "^1.2.0", "has-tostringtag": "^1.0.2" } }, "sha512-rEvr90Bck4WZt9HHFC4DJMsjvu7x+r6bImz0/BrbWb7A2djJ8hnZMrWnHo9F8ssv0OMErasDhftrfROTyqSDrw=="],
 
-    "windmill-cli": ["windmill-cli@1.539.1", "", { "dependencies": { "@ayonli/jsext": "*", "@deno/shim-deno": "~0.18.0", "diff": "*", "es-main": "*", "esbuild": "*", "express": "*", "get-port": "7.1.0", "jszip": "3.7.1", "minimatch": "*", "open": "*", "ws": "*" }, "bin": { "wmill": "esm/src/main.js" } }, "sha512-0S40UqcgBz4wLa9F4/vgkxofUgpcYs9Ez9ldHHPg/1NTLjndFneIPUJWXWkLc4V+zSsxQW/qwazpLmM9Vb2jjQ=="],
+    "windmill-cli": ["windmill-cli@1.541.0", "", { "dependencies": { "@ayonli/jsext": "*", "@deno/shim-deno": "~0.18.0", "diff": "*", "es-main": "*", "esbuild": "*", "express": "*", "get-port": "7.1.0", "jszip": "3.7.1", "minimatch": "*", "open": "*", "ws": "*" }, "bin": { "wmill": "esm/src/main.js" } }, "sha512-1cnepsixEBoq6g4u24l3VXrw2G2aeNAOb37iE3bo4oPWk0qixi+tpHrlz5dPTQOBYP7SeZ+o3hka5m3rwpYTTw=="],
 
-    "windmill-client": ["windmill-client@1.539.1", "", {}, "sha512-CgNykiAjEIUE4n3LQl7wdR47sTwTrzIoGHMMAo+KYXPp01rDaDr3wB/d5NJf7gN4saRD3puyu+XWQE0p8iPPJQ=="],
+    "windmill-client": ["windmill-client@1.541.0", "", {}, "sha512-P68fwf+Q5PZRDM8gkVg0QOkdrD+dLqj95smy9J6G+OEr9o8D6e6qzLFBnKWT4QGYXmq33MSR3BUw6EO0tHOSsA=="],
 
     "wrappy": ["wrappy@1.0.2", "", {}, "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ=="],
 
