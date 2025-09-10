@@ -35,6 +35,10 @@ export async function main(
   use_promotion_overrides?: boolean // Use promotionOverrides from repo branch when "use separate branch" toggle is selected
 ) {
   console.log("WE are in the new oneeee");
+  console.log("are we a tty?", process.stdin.isTTY);
+  console.log("are we a tty?", process.stdout.isTTY);
+  console.log("are we a tty?", process.stderr.isTTY);
+
   let safeDirectoryPath: string | undefined;
   console.log("DEBUG: Starting main function", {
     workspace_id,
