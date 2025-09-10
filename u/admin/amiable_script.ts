@@ -20,6 +20,7 @@ type GitRepository = {
   is_github_app: boolean;
 };
 
+// Added some comment
 const FORKED_WORKSPACE_PREFIX = "wm-fork-";
 const FORKED_BRANCH_PREFIX = "wm-fork";
 
