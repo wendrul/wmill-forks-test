@@ -6,7 +6,7 @@ on:
       - wm-fork/**
 
 env:
-  TARGET_BRANCH: main
+  TARGET_BRANCH: prod
 
 jobs:
   submit_pull_requests:
