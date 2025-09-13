@@ -7,6 +7,7 @@ import * as wmill from "windmill-client"
 // fill the type, or use the +Resource type to get a type-safe reference to a resource
 // type Postgresql = object
 
+//aaaaaa
 
 export async function main(
   a: number,
