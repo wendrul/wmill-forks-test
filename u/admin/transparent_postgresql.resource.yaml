@@ -1,0 +1,8 @@
+description: ''
+value:
+  dbname: ''
+  host: ''
+  password: '$var:u/admin/transparent_postgresql'
+  root_certificate_pem: ''
+  user: ''
+resource_type: postgresql
