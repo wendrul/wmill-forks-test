@@ -26,6 +26,6 @@
 
     "process": ["process@0.11.10", "", {}, "sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A=="],
 
-    "windmill-client": ["windmill-client@1.560.2", "", {}, "sha512-OqfiBZ7oeJTFT6q2C5c5vRY1Az2a5n00gZW7eCvlr3IeS9Ih+LCp62T772h2F1Ea8J2xDS0yMU1jHDlr8E4PJg=="],
+    "windmill-client": ["windmill-client@1.561.0", "", {}, "sha512-/wMB4AvTkdan14MHXPzV0q5pXlRaWBuePTZdY8ZNCb6BK5htUommuAwRxCOdfI98eJLFEjK06ikVQHprzSOYlA=="],
   }
 }

@@ -80,12 +80,11 @@ export async function main(
 async function get_git_ssh_cmd(cwd: string, git_ssh_identity: string[]): Promise<string> {
   const sshIdFiles = await Promise.all(
     git_ssh_identity.map(async (varPath, i) => {
-      // const filePath = join(cwd, `./ssh_id_priv_${i}`);
-      const filePath = `./ssh_id_priv_${i}`;
+      const filePath = join(cwd, `./ssh_id_priv_${i}`);
 
       try {
         // Get variable value using windmill
-        let content = await wmillclient.getVariable(varPath);
+        let content = await wmillclient.getVariableValue(varPath);
         content += '\n';
 
         // Write file with content
@@ -114,11 +113,11 @@ async function git_clone(
   repo_resource: GitRepository,
   commit?: string,
 ): Promise<{ repo_name: string; commitHash: string }> {
-  if (commit) {
-    return git_clone_at_commit(cwd, repo_resource, commit);
-  } else {
-    return git_clone_at_latest(cwd, repo_resource);
-  }
+    if (commit) {
+      return git_clone_at_commit(cwd, repo_resource, commit);
+    } else {
+      return git_clone_at_latest(cwd, repo_resource);
+    }
 }
 
 async function git_clone_at_commit(
