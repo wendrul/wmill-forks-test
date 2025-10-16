@@ -270,7 +270,7 @@ async function uploadDirectoryToS3(
   console.log("Directory upload completed");
 }
 
-function runCommand(secret_position: number | undefined, command: string, ...args: string[]): Promise<string> {
+function runCommand(secret_position: number | undefined, cmd: string, ...args: string[]): Promise<string> {
   const nargs = secret_position != undefined ? args.slice() : args;
   if (secret_position && secret_position < 0)
     secret_position = nargs.length - 1 + secret_position;
@@ -280,10 +280,10 @@ function runCommand(secret_position: number | undefined, command: string, ...arg
     nargs[secret_position] = "***";
     secret = args[secret_position];
   }
-  console.log(`Running shell command: '${command} ${nargs.join(" ")} ...'`);
+  console.log(`Running shell command: '${cmd} ${nargs.join(" ")} ...'`);
 
   return new Promise((resolve, reject) => {
-    const process = spawn(command, args);
+    const process = spawn(cmd, args);
 
     let stdout = '';
     let stderr = '';
