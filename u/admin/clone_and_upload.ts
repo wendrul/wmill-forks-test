@@ -150,9 +150,9 @@ async function git_clone_at_commit(
   }
 
   const repoPath = join(cwd, repo_name);
-  process.chdir(repoPath);
-
   await fs.mkdir(repoPath, { recursive: true });
+
+  process.chdir(repoPath);
 
   await runCommand(undefined, 'git', 'init', '--quiet', `--initial-branch=${branch}`);
 
