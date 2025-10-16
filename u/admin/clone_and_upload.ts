@@ -94,7 +94,7 @@ async function get_git_ssh_cmd(git_ssh_identity: string[]): string {
         await fs.chmod(filePath, 0o600);
 
         // Escape single quotes for shell command
-        const escapedPath = resolvedPath.replace(/'/g, "'\\''");
+        const escapedPath = filePath.replace(/'/g, "'\\''");
         return ` -i '${escapedPath}'`;
       } catch (error) {
         console.error(
