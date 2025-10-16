@@ -217,10 +217,11 @@ async function uploadDirectoryToS3(
       } else if (entry.isFile()) {
         // Upload file
         const fileContent = fs.readFileSync(fullPath);
-        const response = await wmillclient.HelpersService.gitRepoViewerFileUpload({
+        const blob = new Blob([fileContent], { type: 'application/octet-stream' });
+        await wmillclient.HelpersService.gitRepoViewerFileUpload({
           workspace,
           fileKey: s3Key,
-          requestBody: fileContent
+          requestBody: blob
         });
         console.log(`Uploaded: ${s3Key}`);
       }
