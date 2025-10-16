@@ -5,7 +5,6 @@ const util = require("util");
 const exec = util.promisify(require("child_process").exec);
 import process from "process";
 import * as fs from 'fs/promises';
-import * as path from 'path';
 
 type GitRepository = {
   url: string;
@@ -24,7 +23,7 @@ export async function main(
   let clonedRepoPath: string | undefined;
 
   try {
-    console.log("Starting git clone and S3 upload process");
+    console.log("Starting git clone and Blob storage upload process");
 
     // Get the git repository resource
     const repo_resource: GitRepository = await wmillclient.getResource(resource_path);
@@ -44,7 +43,7 @@ export async function main(
     process.env.GIT_TERMINAL_PROMPT = "0";
 
     // Clone the repository
-    const { repo_name, safeDirectoryPath: _, commitHash } = await git_clone(cwd, repo_resource);
+    const { repo_name, commitHash } = await git_clone(cwd, repo_resource, commit);
     clonedRepoPath = join(cwd, repo_name);
 
     // Remove .git directory to avoid uploading git history
@@ -77,7 +76,7 @@ export async function main(
   }
 }
 
-async function get_git_ssh_cmd(git_ssh_identity: string[]): string {
+async function get_git_ssh_cmd(git_ssh_identity: string[]): Promise<string> {
   const sshIdFiles = await Promise.all(
     git_ssh_identity.map(async (varPath, i) => {
       const filePath = `./ssh_id_priv_${i}`;
@@ -108,21 +107,73 @@ async function get_git_ssh_cmd(git_ssh_identity: string[]): string {
   const gitSshCmd = `ssh -o StrictHostKeyChecking=no${sshIdFiles.join('')}`;
   return gitSshCmd;
 }
+async function git_clone(
+  cwd: string,
+  repo_resource: GitRepository,
+  commit?: string,
+): Promise<{ repo_name: string; commitHash: string }> {
+  if (commit) {
+    return git_clone_at_commit(cwd, repo_resource, commit);
+  } else {
+    return git_clone_at_latest(cwd, repo_resource);
+  }
+}
 
 async function git_clone_at_commit(
   cwd: string,
-  repo_resource: GitRepository
-): Promise<{ repo_name: string; safeDirectoryPath: string; commitHash: string }> {
+  repo_resource: GitRepository,
+  commit: string,
+): Promise<{ repo_name: string; commitHash: string }> {
   let repo_url = repo_resource.url;
   const subfolder = repo_resource.folder ?? "";
   let branch = repo_resource.branch ?? "";
   const repo_name = basename(repo_url, ".git");
+
+  const azureMatch = repo_url.match(/AZURE_DEVOPS_TOKEN\((?<url>.+)\)/);
+  if (azureMatch) {
+    console.log("Fetching Azure DevOps access token...");
+    const azureResource = await wmillclient.getResource(azureMatch.groups.url);
+    const response = await fetch(
+      `https://login.microsoftonline.com/${azureResource.azureTenantId}/oauth2/token`,
+      {
+        method: "POST",
+        body: new URLSearchParams({
+          client_id: azureResource.azureClientId,
+          client_secret: azureResource.azureClientSecret,
+          grant_type: "client_credentials",
+          resource: "499b84ac-1321-427f-aa17-267ca6975798/.default",
+        }),
+      }
+    );
+    const { access_token } = await response.json();
+    repo_url = repo_url.replace(azureMatch[0], access_token);
+  }
+
+  const repoPath = join(cwd, repo_name);
+  process.chdir(repoPath);
+
+  await fs.mkdir(repoPath, { recursive: true });
+
+  await runCommand(undefined, 'git', 'init', '--quiet', `--initial-branch=${branch}`);
+
+  await runCommand(-1, 'git', 'remote', 'add', 'origin', repo_url);
+
+  await runCommand(undefined, 'git', 'fetch', '--depth=1', '--quiet', 'origin', commit);
+
+  await runCommand(undefined, 'git', 'fetch', '--quiet', 'FETCH_HEAD');
+
+  const commitHash = (await runCommand(undefined, "git", "rev-parse", "HEAD")).trim();
+
+  // Return to original directory
+  process.chdir(cwd);
+
+  return { repo_name, commitHash };
 }
 
-async function git_clone(
+async function git_clone_at_latest(
   cwd: string,
   repo_resource: GitRepository
-): Promise<{ repo_name: string; safeDirectoryPath: string; commitHash: string }> {
+): Promise<{ repo_name: string; commitHash: string }> {
   let repo_url = repo_resource.url;
   const subfolder = repo_resource.folder ?? "";
   let branch = repo_resource.branch ?? "";
@@ -154,28 +205,13 @@ async function git_clone(
   if (branch !== "") args.push("--branch", branch);
   args.push(repo_url, repo_name);
 
-  try {
-    await sh_run(-1, "git", ...args);
-  } catch (error) {
-    const errorString = error.toString();
-    if (branch !== "" && errorString.includes("Remote branch") && errorString.includes("not found")) {
-      console.log(`Branch ${branch} not found, cloning without branch specification for empty repo`);
-      const fallbackArgs = ["clone", "--quiet", "--depth", "1"];
-      if (subfolder !== "") fallbackArgs.push("--sparse");
-      fallbackArgs.push(repo_url, repo_name);
-      await sh_run(-1, "git", ...fallbackArgs);
-    } else {
-      throw error;
-    }
-  }
+  await runCommand(-1, "git", ...args);
 
   const fullPath = join(cwd, repo_name);
   process.chdir(fullPath);
 
-  const safeDirectoryPath = fullPath;
-
   if (subfolder !== "") {
-    await sh_run(undefined, "git", "sparse-checkout", "add", subfolder);
+    await runCommand(undefined, "git", "sparse-checkout", "add", subfolder);
     const subfolderPath = join(fullPath, subfolder);
 
     if (!existsSync(subfolderPath)) {
@@ -186,12 +222,12 @@ async function git_clone(
   }
 
   // Get the commit hash
-  const commitHash = (await sh_run(undefined, "git", "rev-parse", "HEAD")).trim();
+  const commitHash = (await runCommand(undefined, "git", "rev-parse", "HEAD")).trim();
 
   // Return to original directory
   process.chdir(cwd);
 
-  return { repo_name, safeDirectoryPath, commitHash };
+  return { repo_name, commitHash };
 }
 
 async function uploadDirectoryToS3(
@@ -199,16 +235,13 @@ async function uploadDirectoryToS3(
   s3BasePath: string,
   workspace: string,
 ) {
-  const fs = await import("fs");
-  const path = await import("path");
-
   console.log(`Uploading directory ${directoryPath} to S3 path ${s3BasePath}`);
 
   async function uploadDirRecursive(currentDir: string, currentS3Path: string) {
     const entries = fs.readdirSync(currentDir, { withFileTypes: true });
 
     for (const entry of entries) {
-      const fullPath = path.join(currentDir, entry.name);
+      const fullPath = join(currentDir, entry.name);
       const s3Key = currentS3Path ? `${currentS3Path}/${entry.name}` : entry.name;
 
       if (entry.isDirectory()) {
@@ -232,11 +265,7 @@ async function uploadDirectoryToS3(
   console.log("Directory upload completed");
 }
 
-async function sh_run(
-  secret_position: number | undefined,
-  cmd: string,
-  ...args: string[]
-) {
+function runCommand(secret_position: number | undefined, command: string, ...args: string[]): Promise<string> {
   const nargs = secret_position != undefined ? args.slice() : args;
   if (secret_position && secret_position < 0)
     secret_position = nargs.length - 1 + secret_position;
@@ -246,27 +275,84 @@ async function sh_run(
     nargs[secret_position] = "***";
     secret = args[secret_position];
   }
+  console.log(`Running shell command: '${command} ${nargs.join(" ")} ...'`);
 
-  console.log(`Running shell command: '${cmd} ${nargs.join(" ")} ...'`);
-  try {
-    const { stdout, stderr } = await exec(`${cmd} ${args.join(" ")}`);
-    if (stdout.length > 0) {
-      console.log("Shell stdout:", stdout);
-    }
-    if (stderr.length > 0) {
-      console.log("Shell stderr:", stderr);
-    }
-    console.log(`Shell command completed successfully: ${cmd}`);
-    return stdout;
-  } catch (error: any) {
-    let errorString = error.toString();
-    if (secret) errorString = errorString.replace(secret, "***");
-    console.log(`Shell command FAILED: ${cmd}`, errorString);
-    throw new Error(
-      `SH command '${cmd} ${nargs.join(" ")}' failed: ${errorString}`
-    );
-  }
+  return new Promise((resolve, reject) => {
+    const process = spawn(command, args);
+
+    let stdout = '';
+    let stderr = '';
+
+    process.stdout.on('data', (data) => {
+      stdout += data.toString();
+    });
+
+    process.stderr.on('data', (data) => {
+      stderr += data.toString();
+    });
+
+    process.on('error', (error) => {
+      let errorString = error.toString();
+      if (secret) errorString = errorString.replace(secret, "***");
+      console.log(`Shell command FAILED: ${cmd}`, errorString);
+      const e = new Error(
+        `SH command '${cmd} ${nargs.join(" ")}' failed: ${errorString}`
+      );
+      reject(e);
+    });
+
+    process.on('close', (code) => {
+      if (stdout.length > 0) {
+        console.log("Shell stdout:", stdout);
+      }
+      if (stderr.length > 0) {
+        console.log("Shell stderr:", stderr);
+      }
+      if (code === 0) {
+        console.log(`Shell command completed successfully: ${cmd}`);
+        resolve(stdout);
+      } else {
+        reject(new Error(`Command failed with code ${code}: ${stderr}`));
+      }
+    });
+  });
 }
+
+// async function sh_run(
+//   secret_position: number | undefined,
+//   cmd: string,
+//   ...args: string[]
+// ) {
+//   const nargs = secret_position != undefined ? args.slice() : args;
+//   if (secret_position && secret_position < 0)
+//     secret_position = nargs.length - 1 + secret_position;
+//
+//   let secret: string | undefined = undefined;
+//   if (secret_position != undefined) {
+//     nargs[secret_position] = "***";
+//     secret = args[secret_position];
+//   }
+//
+//   console.log(`Running shell command: '${cmd} ${nargs.join(" ")} ...'`);
+//   try {
+//     const { stdout, stderr } = await exec(`${cmd} ${args.join(" ")}`);
+//     if (stdout.length > 0) {
+//       console.log("Shell stdout:", stdout);
+//     }
+//     if (stderr.length > 0) {
+//       console.log("Shell stderr:", stderr);
+//     }
+//     console.log(`Shell command completed successfully: ${cmd}`);
+//     return stdout;
+//   } catch (error: any) {
+//     let errorString = error.toString();
+//     if (secret) errorString = errorString.replace(secret, "***");
+//     console.log(`Shell command FAILED: ${cmd}`, errorString);
+//     throw new Error(
+//       `SH command '${cmd} ${nargs.join(" ")}' failed: ${errorString}`
+//     );
+//   }
+// }
 
 async function get_gh_app_token() {
   const workspace = process.env["WM_WORKSPACE"];
