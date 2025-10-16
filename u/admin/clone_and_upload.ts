@@ -30,7 +30,7 @@ export async function main(
     const repo_resource: GitRepository = await wmillclient.getResource(resource_path);
 
     if (git_ssh_identity) {
-      process.env.GIT_SSH_COMMAND = get_git_ssh_cmd(git_ssh_identity)
+      process.env.GIT_SSH_COMMAND = await get_git_ssh_cmd(git_ssh_identity)
     }
 
     // Handle GitHub App authentication if needed
