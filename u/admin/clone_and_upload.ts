@@ -4,6 +4,7 @@ import { existsSync, rmSync } from "fs";
 const util = require("util");
 const exec = util.promisify(require("child_process").exec);
 import process from "process";
+import { spawn } from 'child_process';
 import * as fs from 'fs/promises';
 
 type GitRepository = {
@@ -154,7 +155,11 @@ async function git_clone_at_commit(
 
   process.chdir(repoPath);
 
-  await runCommand(undefined, 'git', 'init', '--quiet', `--initial-branch=${branch}`);
+  let args = ['init', '--quiet']
+  if (branch) {
+    args.push(`--initial-branch=${branch}`)
+  }
+  await runCommand(undefined, 'git', ...args);
 
   await runCommand(-1, 'git', 'remote', 'add', 'origin', repo_url);
 

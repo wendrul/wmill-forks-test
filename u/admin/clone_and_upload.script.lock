@@ -3,8 +3,8 @@
     "windmill-client": "latest",
     "fs": "latest",
     "process": "latest",
-    "util": "latest",
-    "child_process": "latest"
+    "child_process": "latest",
+    "util": "latest"
   }
 }
 //bun.lock
