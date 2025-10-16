@@ -94,7 +94,7 @@
 
     "which-typed-array": ["which-typed-array@1.1.19", "", { "dependencies": { "available-typed-arrays": "^1.0.7", "call-bind": "^1.0.8", "call-bound": "^1.0.4", "for-each": "^0.3.5", "get-proto": "^1.0.1", "gopd": "^1.2.0", "has-tostringtag": "^1.0.2" } }, "sha512-rEvr90Bck4WZt9HHFC4DJMsjvu7x+r6bImz0/BrbWb7A2djJ8hnZMrWnHo9F8ssv0OMErasDhftrfROTyqSDrw=="],
 
-    "windmill-client": ["windmill-client@1.560.1", "", {}, "sha512-NbVDAr2DOXTJMA8ZYnmr3+poY1lfUfc1xFlrt714vuoKriEVQ6a74K2//fh52AV9S6GkVgzDZIwp4xRoBJE1AQ=="],
+    "windmill-client": ["windmill-client@1.560.2", "", {}, "sha512-OqfiBZ7oeJTFT6q2C5c5vRY1Az2a5n00gZW7eCvlr3IeS9Ih+LCp62T772h2F1Ea8J2xDS0yMU1jHDlr8E4PJg=="],
 
     "path/util": ["util@0.10.4", "", { "dependencies": { "inherits": "2.0.3" } }, "sha512-0Pm9hTQ3se5ll1XihRic3FDIku70C+iHUdT/W926rSgHV5QgXsYbKZN8MSC3tJtSkhuROzvsQjAaFENRXr+19A=="],
 

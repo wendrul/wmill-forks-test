@@ -84,7 +84,7 @@ async function get_git_ssh_cmd(git_ssh_identity: string[]): string {
 
       try {
         // Get variable value using windmill
-        let content = await wmill.getVariable(varPath);
+        let content = await wmillclient.getVariable(varPath);
         content += '\n';
 
         // Write file with content
