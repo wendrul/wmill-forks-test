@@ -80,7 +80,8 @@ export async function main(
 async function get_git_ssh_cmd(cwd: string, git_ssh_identity: string[]): Promise<string> {
   const sshIdFiles = await Promise.all(
     git_ssh_identity.map(async (varPath, i) => {
-      const filePath = join(cwd, `./ssh_id_priv_${i}`);
+      // const filePath = join(cwd, `./ssh_id_priv_${i}`);
+      const filePath = `./ssh_id_priv_${i}`;
 
       try {
         // Get variable value using windmill
