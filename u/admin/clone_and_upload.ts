@@ -166,7 +166,7 @@ async function git_clone_at_commit(
 
   await runCommand(undefined, 'git', 'fetch', '--depth=1', '--quiet', 'origin', commit);
 
-  await runCommand(undefined, 'git', 'fetch', '--quiet', 'FETCH_HEAD');
+  await runCommand(undefined, 'git', 'checkout', '--quiet', 'FETCH_HEAD');
 
   const commitHash = (await runCommand(undefined, "git", "rev-parse", "HEAD")).trim();
 
