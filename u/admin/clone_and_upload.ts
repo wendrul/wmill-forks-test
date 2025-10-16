@@ -1,11 +1,10 @@
 import * as wmillclient from "windmill-client";
 import { basename, join } from "node:path";
 import { existsSync, rmSync } from "fs";
-const util = require("util");
-const exec = util.promisify(require("child_process").exec);
 import process from "process";
 import { spawn } from 'child_process';
-import * as fs from 'fs/promises';
+import * as fs_async from 'fs/promises';
+import * as fs from 'node:fs';
 
 type GitRepository = {
   url: string;
@@ -89,10 +88,10 @@ async function get_git_ssh_cmd(cwd: string, git_ssh_identity: string[]): Promise
         content += '\n';
 
         // Write file with content
-        await fs.writeFile(filePath, content, { encoding: 'utf8' });
+        await fs_async.writeFile(filePath, content, { encoding: 'utf8' });
 
         // Set file permissions to 0o600 (read/write for owner only)
-        await fs.chmod(filePath, 0o600);
+        await fs_async.chmod(filePath, 0o600);
 
         // Escape single quotes for shell command
         const escapedPath = filePath.replace(/'/g, "'\\''");
@@ -114,11 +113,11 @@ async function git_clone(
   repo_resource: GitRepository,
   commit?: string,
 ): Promise<{ repo_name: string; commitHash: string }> {
-    if (commit) {
-      return git_clone_at_commit(cwd, repo_resource, commit);
-    } else {
-      return git_clone_at_latest(cwd, repo_resource);
-    }
+  if (commit) {
+    return git_clone_at_commit(cwd, repo_resource, commit);
+  } else {
+    return git_clone_at_latest(cwd, repo_resource);
+  }
 }
 
 async function git_clone_at_commit(
@@ -152,7 +151,7 @@ async function git_clone_at_commit(
   }
 
   const repoPath = join(cwd, repo_name);
-  await fs.mkdir(repoPath, { recursive: true });
+  await fs_async.mkdir(repoPath, { recursive: true });
 
   process.chdir(repoPath);
 
