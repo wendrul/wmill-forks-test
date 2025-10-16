@@ -80,7 +80,7 @@ export async function main(
 async function get_git_ssh_cmd(git_ssh_identity: string[]): string {
   const sshIdFiles = await Promise.all(
     git_ssh_identity.map(async (varPath, i) => {
-      const idFileName = `./ssh_id_priv_${i}`;
+      const filePath = `./ssh_id_priv_${i}`;
 
       try {
         // Get variable value using windmill
