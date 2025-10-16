@@ -29,8 +29,10 @@ export async function main(
     // Get the git repository resource
     const repo_resource: GitRepository = await wmillclient.getResource(resource_path);
 
+    const cwd = process.cwd();
+
     if (git_ssh_identity) {
-      process.env.GIT_SSH_COMMAND = await get_git_ssh_cmd(git_ssh_identity)
+      process.env.GIT_SSH_COMMAND = await get_git_ssh_cmd(cwd, git_ssh_identity)
     }
 
     // Handle GitHub App authentication if needed
@@ -39,7 +41,6 @@ export async function main(
       repo_resource.url = prependTokenToGitHubUrl(repo_resource.url, token);
     }
 
-    const cwd = process.cwd();
     process.env["HOME"] = ".";
     process.env.GIT_TERMINAL_PROMPT = "0";
 
@@ -77,10 +78,10 @@ export async function main(
   }
 }
 
-async function get_git_ssh_cmd(git_ssh_identity: string[]): Promise<string> {
+async function get_git_ssh_cmd(cwd: string, git_ssh_identity: string[]): Promise<string> {
   const sshIdFiles = await Promise.all(
     git_ssh_identity.map(async (varPath, i) => {
-      const filePath = `./ssh_id_priv_${i}`;
+      const filePath = join(cwd, `./ssh_id_priv_${i}`);
 
       try {
         // Get variable value using windmill
@@ -113,11 +114,11 @@ async function git_clone(
   repo_resource: GitRepository,
   commit?: string,
 ): Promise<{ repo_name: string; commitHash: string }> {
-  if (commit) {
-    return git_clone_at_commit(cwd, repo_resource, commit);
-  } else {
-    return git_clone_at_latest(cwd, repo_resource);
-  }
+    if (commit) {
+      return git_clone_at_commit(cwd, repo_resource, commit);
+    } else {
+      return git_clone_at_latest(cwd, repo_resource);
+    }
 }
 
 async function git_clone_at_commit(
@@ -161,7 +162,7 @@ async function git_clone_at_commit(
   }
   await runCommand(undefined, 'git', ...args);
 
-  await runCommand(-1, 'git', 'remote', 'add', 'origin', repo_url);
+  await runCommand(0, 'git', 'remote', 'add', 'origin', repo_url);
 
   await runCommand(undefined, 'git', 'fetch', '--depth=1', '--quiet', 'origin', commit);
 
