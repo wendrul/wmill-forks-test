@@ -5,7 +5,6 @@ import { basename } from "node:path";
 const util = require("util");
 const exec = util.promisify(require("child_process").exec);
 import process from "process";
-import fs from "nodefs";
 
 type GpgKey = {
   email: string;
@@ -50,7 +49,7 @@ export async function main(
   parent_workspace_id?: string,
   use_individual_branch = false,
   group_by_folder = false,
-  create_branch: boolean = false
+  only_create_branch: boolean = false
 ) {
   let safeDirectoryPath: string | undefined;
   const repo_resource = await wmillclient.getResource(repo_url_resource_path);
@@ -117,7 +116,7 @@ export async function main(
   );
 
   // If we want to just create the branch, we can skip pulling the changes.
-  if (!create_branch) {
+  if (!only_create_branch) {
     await wmill_sync_pull(
       path_type,
       workspace_id,
@@ -249,12 +248,12 @@ async function move_to_git_branch(
     }
     branchName = group_by_folder
       ? `wm_deploy/${workspace_id}/${(path ?? parent_path)
-          ?.split("/")
-          .slice(0, 2)
-          .join("__")}`
+        ?.split("/")
+        .slice(0, 2)
+        .join("__")}`
       : `wm_deploy/${workspace_id}/${path_type}/${(
-          path ?? parent_path
-        )?.replaceAll("/", "__")}`;
+        path ?? parent_path
+      )?.replaceAll("/", "__")}`;
   }
 
   try {

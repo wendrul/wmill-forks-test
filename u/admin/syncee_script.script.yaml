@@ -12,11 +12,11 @@ schema:
       description: ''
       default: null
       originalType: string
-    create_branch:
+    group_by_folder:
       type: boolean
       description: ''
       default: false
-    group_by_folder:
+    only_create_branch:
       type: boolean
       description: ''
       default: false
