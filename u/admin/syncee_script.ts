@@ -129,7 +129,7 @@ export async function main(
     );
   }
   try {
-    await git_push(path, parent_path, commit_msg, repo_resource);
+    await git_push(path, parent_path, commit_msg, repo_resource, only_create_branch);
   } catch (e) {
     throw e;
   } finally {
@@ -286,7 +286,8 @@ async function git_push(
   path: string | undefined,
   parent_path: string | undefined,
   commit_msg: string,
-  repo_resource: any
+  repo_resource: any,
+  only_create_branch: boolean,
 ) {
   let user_email = process.env["WM_EMAIL"] ?? "";
   let user_name = process.env["WM_USERNAME"] ?? "";
@@ -305,6 +306,9 @@ async function git_push(
   } else {
     await sh_run(undefined, "git", "config", "user.email", user_email);
     await sh_run(undefined, "git", "config", "user.name", user_name);
+  }
+  if (only_create_branch) {
+    await sh_run(undefined, "git", "push", "--porcelain");
   }
 
   if (path !== undefined && path !== null && path !== "") {
