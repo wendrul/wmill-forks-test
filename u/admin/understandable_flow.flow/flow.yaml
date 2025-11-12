@@ -25,16 +25,28 @@ value:
               label: Variant 1
         is_trigger: false
         path: u/admin/premier_script
+    - id: c
+      value:
+        type: rawscript
+        content: '!inline inline_script_0.inline_script.sh'
+        input_transforms:
+          dflt:
+            type: static
+            value: default value
+          msg:
+            type: static
+            value: ''
+        lock: ''
+        language: bash
     - id: b
       value:
         type: rawscript
-        content: '!inline inline_script_0.inline_script.ts'
+        content: '!inline inline_script_1.inline_script.ts'
         input_transforms:
           x:
             type: static
             value: ''
-        assets: []
-        lock: '!inline inline_script_0.inline_script.lock'
+        lock: '!inline inline_script_1.inline_script.lock'
         language: bun
 schema:
   $schema: 'https://json-schema.org/draft/2020-12/schema'
