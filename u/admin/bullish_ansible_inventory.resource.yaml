@@ -2,7 +2,7 @@ description: ''
 value:
   content: |-
     [local]
-    127.0.0.1 ansible_port=2202 ansible_connection=ssh ansible_user=vagrant
+    127.0.0.1 ansible_port=2201 ansible_connection=ssh ansible_user=vagrant
 
     [local:vars]
     ansible_user=root
