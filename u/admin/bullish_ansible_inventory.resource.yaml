@@ -1,0 +1,6 @@
+description: ''
+value:
+  content: |-
+    [local]
+    localhost ansible_connection=local
+resource_type: ansible_inventory
