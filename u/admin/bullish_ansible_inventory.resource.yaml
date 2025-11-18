@@ -2,8 +2,8 @@ description: ''
 value:
   content: |-
     [local]
-    127.0.0.1 ansible_port=2201 ansible_connection=ssh ansible_user=vagrant
+    127.0.0.1 ansible_port=2201 ansible_connection=ssh
 
     [local:vars]
-    ansible_user=root
+    ansible_user=vagrant
 resource_type: ansible_inventory
