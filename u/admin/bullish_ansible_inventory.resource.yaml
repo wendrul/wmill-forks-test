@@ -1,4 +1,4 @@
 description: ''
 value:
-  content: default ansible_host=127.0.0.1 ansible_port=2201 ansible_user='vagrant'
+  content: default ansible_host=127.0.0.1 ansible_port=2200 ansible_user='vagrant'
 resource_type: ansible_inventory
