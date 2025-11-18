@@ -5,5 +5,5 @@ value:
     127.0.0.1 ansible_port=2200 ansible_connection=ssh
 
     [local:vars]
-    ansible_user=vagrant
+    ansible_user=root
 resource_type: ansible_inventory
