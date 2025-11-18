@@ -1,6 +1,6 @@
 description: ''
 value:
   content: >-
-    default ansible_host=127.0.0.1 ansible_port=2200 ansible_user='vagrant'
-    ansible_ssh_private_key_file='/home/wendrul/.vagrant.d/insecure_private_keys/vagrant.key.ed25519'
+    default ansible_host=127.0.0.1 ansible_port=2200
+    ansible_ssh_private_key_file='/home/wendrul/test/ansible-for-devops/first-ansible-playbook/.vagrant/machines/default/virtualbox/private_key'
 resource_type: ansible_inventory
