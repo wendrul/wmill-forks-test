@@ -2,5 +2,5 @@ description: ''
 value:
   content: |-
     [local]
-    localhost ansible_connection=local
+    127.0.0.1 ansible_port=2200 ansible_connection=ssh
 resource_type: ansible_inventory
