@@ -7,7 +7,7 @@ import * as wmill from "windmill-client"
 // fill the type, or use the +Resource type to get a type-safe reference to a resource
 // type Postgresql = object
 
-//nw commentsaa
+//nw commentsaaaaaa
 export async function main() {
   wmill.getResource("res://u/admin/agreeable_s3")
 }
