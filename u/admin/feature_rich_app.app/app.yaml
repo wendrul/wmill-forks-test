@@ -1,0 +1,160 @@
+summary: ''
+value:
+  fullscreen: false
+  grid:
+    - '12':
+        fixed: true
+        fullHeight: false
+        h: 2
+        w: 12
+        x: 0
+        'y': 0
+      '3':
+        fixed: true
+        fullHeight: false
+        h: 2
+        w: 6
+        x: 0
+        'y': 0
+      id: topbar
+      data:
+        id: topbar
+        type: containercomponent
+        configuration: {}
+        customCss:
+          container:
+            class: '!p-0'
+            style: ''
+        numberOfSubgrids: 1
+    - '12':
+        fixed: false
+        fullHeight: false
+        h: 1
+        w: 2
+        x: 0
+        'y': 2
+      '3':
+        fixed: false
+        fullHeight: false
+        h: 1
+        w: 2
+        x: 0
+        'y': 2
+      id: a
+      data:
+        id: a
+        type: textinputcomponent
+        configuration:
+          afterIcon:
+            type: static
+          beforeIcon:
+            type: static
+          defaultValue:
+            type: static
+          disabled:
+            type: static
+            value: false
+          placeholder:
+            type: static
+            value: Type...
+        customCss:
+          input:
+            class: ''
+            style: ''
+        verticalAlignment: center
+  hiddenInlineScripts: []
+  hideLegacyTopBar: true
+  mobileViewOnSmallerScreens: false
+  subgrids:
+    topbar-0:
+      - '12':
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 6
+          x: 0
+          'y': 0
+        '3':
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 6
+          x: 0
+          'y': 0
+        id: title
+        data:
+          id: title
+          type: textcomponent
+          componentInput:
+            type: templatev2
+            connections:
+              - id: summary
+                componentId: ctx
+            eval: '${ctx.summary}'
+            fieldType: template
+          configuration:
+            copyButton:
+              type: static
+              value: false
+            disableNoText:
+              type: static
+              value: true
+              fieldType: boolean
+            style:
+              type: static
+              value: Body
+            tooltip:
+              type: evalv2
+              value: ''
+              connections:
+                - id: author
+                  componentId: ctx
+              expr: '`Author: ${ctx.author}`'
+              fieldType: text
+          customCss:
+            container:
+              class: ''
+              style: ''
+            text:
+              class: text-xl font-semibold whitespace-nowrap truncate
+              style: ''
+          horizontalAlignment: left
+          verticalAlignment: center
+      - '12':
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 6
+          x: 6
+          'y': 0
+        '3':
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 3
+          x: 0
+          'y': 1
+        id: recomputeall
+        data:
+          id: recomputeall
+          type: recomputeallcomponent
+          configuration:
+            defaultRefreshInterval:
+              type: static
+              value: '0'
+          customCss:
+            container:
+              class: ''
+              style: ''
+          horizontalAlignment: right
+          menuItems: []
+          verticalAlignment: center
+  theme:
+    type: path
+    path: f/app_themes/theme_0
+  unusedInlineScripts: []
+policy:
+  allowed_s3_keys: []
+  execution_mode: publisher
+  s3_inputs: []
+  triggerables_v2: {}
