@@ -1,7 +1,0 @@
-description: nixos
-value:
-  branch: ''
-  folder: ''
-  is_github_app: false
-  url: '$var:u/admin/nixos_repo'
-resource_type: git_repository

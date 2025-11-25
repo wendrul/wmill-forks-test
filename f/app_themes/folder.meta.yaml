@@ -2,6 +2,4 @@ summary: null
 display_name: App Themes
 extra_perms:
   g/all: false
-  u/admin: true
-owners:
-  - u/admin
+owners: []
