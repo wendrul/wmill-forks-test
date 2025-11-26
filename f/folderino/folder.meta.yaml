@@ -1,6 +1,7 @@
 summary: null
 display_name: folderino
 extra_perms:
+  g/grouptest: false
   u/admin: true
 owners:
   - u/admin
