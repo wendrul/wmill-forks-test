@@ -1,0 +1,6 @@
+summary: null
+display_name: folderino
+extra_perms:
+  u/admin: true
+owners:
+  - u/admin
