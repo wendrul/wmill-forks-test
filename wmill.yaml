@@ -16,5 +16,3 @@ includeTriggers: false
 gitBranches:
   prod:
     overrides: {}
-    baseUrl: 'http://localhost:8000/'
-    workspaceId: wwwww
