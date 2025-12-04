@@ -2,16 +2,6 @@ summary: ''
 description: ''
 value:
   modules:
-    - id: c
-      value:
-        type: rawscript
-        content: '!inline inline_script_0.inline_script.ts'
-        input_transforms:
-          x:
-            type: static
-            value: ''
-        lock: '!inline inline_script_0.inline_script.lock'
-        language: bun
     - id: a
       value:
         type: script
@@ -38,12 +28,13 @@ value:
     - id: b
       value:
         type: rawscript
-        content: '!inline inline_script_1.inline_script.ts'
+        content: '!inline inline_script_0.inline_script.ts'
         input_transforms:
           x:
             type: static
             value: ''
-        lock: '!inline inline_script_1.inline_script.lock'
+        assets: []
+        lock: '!inline inline_script_0.inline_script.lock'
         language: bun
 schema:
   $schema: 'https://json-schema.org/draft/2020-12/schema'
