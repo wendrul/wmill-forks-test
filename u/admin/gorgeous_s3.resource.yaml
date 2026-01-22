@@ -1,0 +1,10 @@
+description: ''
+value:
+  accessKey: GJ617TFTN5RE0O7RYLXP
+  bucket: wmill
+  endPoint: 'localhost:9000'
+  pathStyle: true
+  region: home
+  secretKey: Btbs9ZO6mHm1trAo8gaEyf3iPUrkn6XfXLbj3zsS
+  useSSL: false
+resource_type: s3

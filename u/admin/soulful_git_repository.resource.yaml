@@ -5,5 +5,5 @@ value:
   branch: prod
   folder: ''
   is_github_app: true
-  url: 'https://github.com/wendrul/wmill-forks-test'
+  url: '$var:u/admin/soulful_git_repository'
 resource_type: git_repository

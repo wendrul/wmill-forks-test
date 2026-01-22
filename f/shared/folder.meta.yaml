@@ -2,5 +2,6 @@ summary: null
 display_name: shared
 extra_perms:
   u/admin: true
+  u/user: false
 owners:
   - u/admin

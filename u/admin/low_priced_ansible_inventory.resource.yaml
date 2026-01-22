@@ -1,0 +1,9 @@
+description: ''
+value:
+  content: |
+    asdasdasdas
+    a
+    sd
+    as
+    asd
+resource_type: ansible_inventory

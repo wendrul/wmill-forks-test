@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "windmill-client": "latest",
+    "fs": "latest",
+    "process": "latest",
+    "child_process": "latest"
+  }
+}
+//bun.lock
+{
+  "lockfileVersion": 1,
+  "workspaces": {
+    "": {
+      "dependencies": {
+        "child_process": "latest",
+        "fs": "latest",
+        "process": "latest",
+        "windmill-client": "latest",
+      },
+    },
+  },
+  "packages": {
+    "child_process": ["child_process@1.0.2", "", {}, "sha512-Wmza/JzL0SiWz7kl6MhIKT5ceIlnFPJX+lwUGj7Clhy5MMldsSoJR0+uvRzOS5Kv45Mq7t1PoE8TsOA9bzvb6g=="],
+
+    "fs": ["fs@0.0.1-security", "", {}, "sha512-3XY9e1pP0CVEUCdj5BmfIZxRBTSDycnbqhIOGec9QYtmVH2fbLpj86CFWkrNOkt/Fvty4KZG5lTglL9j/gJ87w=="],
+
+    "process": ["process@0.11.10", "", {}, "sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A=="],
+
+    "windmill-client": ["windmill-client@1.561.0", "", {}, "sha512-/wMB4AvTkdan14MHXPzV0q5pXlRaWBuePTZdY8ZNCb6BK5htUommuAwRxCOdfI98eJLFEjK06ikVQHprzSOYlA=="],
+  }
+}

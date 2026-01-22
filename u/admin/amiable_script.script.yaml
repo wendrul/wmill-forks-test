@@ -1,0 +1,43 @@
+summary: ''
+description: ''
+lock: '!inline u/admin/amiable_script.script.lock'
+kind: script
+schema:
+  $schema: 'https://json-schema.org/draft/2020-12/schema'
+  type: object
+  properties:
+    dry_run:
+      type: boolean
+      description: ''
+      default: null
+    only_wmill_yaml:
+      type: boolean
+      description: ''
+      default: false
+    pull:
+      type: boolean
+      description: ''
+      default: false
+    repo_url_resource_path:
+      type: string
+      description: ''
+      default: null
+      originalType: string
+    settings_json:
+      type: string
+      description: ''
+      default: null
+      originalType: string
+    use_promotion_overrides:
+      type: boolean
+      description: ''
+      default: null
+    workspace_id:
+      type: string
+      description: ''
+      default: null
+      originalType: string
+  required:
+    - workspace_id
+    - repo_url_resource_path
+    - dry_run

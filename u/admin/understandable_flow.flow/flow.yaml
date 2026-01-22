@@ -1,0 +1,43 @@
+summary: ''
+description: ''
+value:
+  modules:
+    - id: a
+      value:
+        type: script
+        input_transforms:
+          a:
+            type: static
+          b:
+            type: static
+            value: my
+          e:
+            type: static
+            value: inferred type string from default arg
+          f:
+            type: static
+            value:
+              nested: object
+          g:
+            type: static
+            value:
+              foo: ''
+              label: Variant 1
+        is_trigger: false
+        path: u/admin/premier_script
+    - id: b
+      value:
+        type: rawscript
+        content: '!inline inline_script_0.inline_script.ts'
+        input_transforms:
+          x:
+            type: static
+            value: ''
+        assets: []
+        lock: '!inline inline_script_0.inline_script.lock'
+        language: bun
+schema:
+  $schema: 'https://json-schema.org/draft/2020-12/schema'
+  type: object
+  properties: {}
+  required: []

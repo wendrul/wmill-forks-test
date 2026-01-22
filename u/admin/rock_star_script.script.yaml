@@ -1,0 +1,27 @@
+summary: ''
+description: ''
+lock: '!inline u/admin/rock_star_script.script.lock'
+concurrency_time_window_s: 0
+kind: script
+schema:
+  $schema: 'https://json-schema.org/draft/2020-12/schema'
+  type: object
+  order:
+    - repo_url_resource_path
+    - resource_path
+    - s3_resource
+    - pgdbaa
+  properties:
+    resource_path:
+      type: string
+      description: ''
+      default: null
+      originalType: string
+    workspace:
+      type: string
+      description: ''
+      default: null
+      originalType: string
+  required:
+    - resource_path
+    - workspace
