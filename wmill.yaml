@@ -4,9 +4,9 @@ includes:
   - u/**
 excludes: []
 codebases: []
-skipVariables: true
+skipVariables: false
 skipResources: false
-skipSecrets: true
+skipSecrets: false
 skipScripts: false
 skipFlows: false
 skipApps: false
