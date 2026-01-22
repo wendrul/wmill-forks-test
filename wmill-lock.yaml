@@ -8,6 +8,10 @@ locks:
   f/shared/nicer_flow.flow+inline_script_0.inline_script.ts: 5f46c880114c4dca40d639cfac871f000dc1e307093558a98ef72c5ed9a6d86b
   f/shared/nicer_flow.flow+inline_script_1.inline_script.ts: d8fe4baf002732b0d9f8e0a8ff66dff348697aa63bf851ffa68b8d8e21f63746
   f/shared/nicer_flow.flow+inline_script_2.inline_script.ts: 5f46c880114c4dca40d639cfac871f000dc1e307093558a98ef72c5ed9a6d86b
+  f/tutorial/runs-tutorial-broken-1769093158405.flow+__flow_hash: afd7438496d05dee6275eb03200b17f3aec24b11e3087967d13a38edda554f9e
+  f/tutorial/runs-tutorial-broken-1769093158405.flow+throw_error.inline_script.ts: 0dc90cead0440128674a969ad5092e8e68406719d81f849dd24877ee61b52cc3
+  f/tutorial/runs-tutorial-flow-1769093158375.flow+__flow_hash: 0cafb404c4c11eb3431162228bb3cf859e9fa0da3dd8d489f4ba6423a2d0f895
+  f/tutorial/runs-tutorial-flow-1769093158375.flow+say_hello.inline_script.ts: 04cd1ee917cdf1206cf08bc9cd16c9a6b32fdea0a1cd8ae0102f208cfd5b0596
   u/admin/amiable_script: 896ee2fb6ccf3d26f3f2d2d6be7063803c4962c1a2958ce67cab3540e2ae84f3
   u/admin/amiable_script+896ee2fb6ccf3d26f3f2d2d6be7063803c4962c1a2958ce67cab3540e2ae84f3: 896ee2fb6ccf3d26f3f2d2d6be7063803c4962c1a2958ce67cab3540e2ae84f3
   u/admin/attractive_script: 7b82a1824e86bb9afc6092b19104da0ec958004e16b147bcb2beae39b1a7df26

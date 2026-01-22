@@ -1,0 +1,18 @@
+summary: 'Tutorial: Broken Flow Example'
+description: A flow that intentionally fails to demonstrate error handling
+value:
+  modules:
+    - id: error
+      summary: Throw error
+      value:
+        type: rawscript
+        content: '!inline throw_error.inline_script.ts'
+        input_transforms: {}
+        lock: '!inline throw_error.inline_script.lock'
+        language: bun
+schema:
+  $schema: 'https://json-schema.org/draft/2020-12/schema'
+  type: object
+  order: []
+  properties: {}
+  required: []
