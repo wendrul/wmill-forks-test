@@ -26,10 +26,35 @@ value:
             class: '!p-0'
             style: ''
         numberOfSubgrids: 1
+    - '12':
+        fixed: false
+        fullHeight: false
+        h: 8
+        w: 6
+        x: 4
+        'y': 4
+      '3':
+        fixed: false
+        fullHeight: false
+        h: 8
+        w: 2
+        x: 0
+        'y': 2
+      id: a
+      data:
+        id: a
+        type: containercomponent
+        configuration: {}
+        customCss:
+          container:
+            class: ''
+            style: ''
+        numberOfSubgrids: 1
   hiddenInlineScripts: []
   hideLegacyTopBar: true
   mobileViewOnSmallerScreens: false
   subgrids:
+    a-0: []
     topbar-0:
       - '12':
           fixed: false
