@@ -26,10 +26,67 @@ value:
             class: '!p-0'
             style: ''
         numberOfSubgrids: 1
+    - '12':
+        fixed: false
+        fullHeight: false
+        h: 1
+        w: 2
+        x: 8
+        'y': 7
+      '3':
+        fixed: false
+        fullHeight: false
+        h: 1
+        w: 1
+        x: 0
+        'y': 2
+      id: a
+      data:
+        id: a
+        type: modalcomponent
+        configuration:
+          buttonColor:
+            type: static
+            value: blue
+          buttonDisabled:
+            type: static
+            value: false
+          buttonFillContainer:
+            type: static
+            value: false
+          buttonLabel:
+            type: static
+            value: Press me
+          buttonSize:
+            type: static
+            value: xs
+          hideButtonOnView:
+            type: static
+            value: false
+          modalTitle:
+            type: static
+            value: Modal title
+        customCss:
+          button:
+            class: ''
+            style: ''
+          buttonContainer:
+            class: ''
+            style: ''
+          container:
+            class: ''
+            style: ''
+          popup:
+            class: ''
+            style: ''
+        horizontalAlignment: center
+        numberOfSubgrids: 1
+        verticalAlignment: center
   hiddenInlineScripts: []
   hideLegacyTopBar: true
   mobileViewOnSmallerScreens: false
   subgrids:
+    a-0: []
     topbar-0:
       - '12':
           fixed: false
