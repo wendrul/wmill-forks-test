@@ -1,8 +1,8 @@
 description: ''
 value:
-  dbname: ''
+  dbname: windmill
   host: ''
   password: '$var:u/admin/transparent_postgresql'
   root_certificate_pem: ''
-  user: ''
+  user: windmill
 resource_type: postgresql
