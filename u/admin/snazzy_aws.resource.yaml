@@ -1,0 +1,6 @@
+description: ''
+value:
+  awsAccessKeyId: ''
+  awsSecretAccessKey: ''
+  region: ''
+resource_type: aws
