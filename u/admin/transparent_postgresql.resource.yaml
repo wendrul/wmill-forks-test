@@ -1,8 +1,9 @@
 description: ''
 value:
   dbname: windmill
-  host: localhost
+  host: 127.0.0.1
   password: '$var:u/admin/transparent_postgresql'
   root_certificate_pem: ''
-  user: windmill
+  sslmode: disable
+  user: postgres
 resource_type: postgresql
