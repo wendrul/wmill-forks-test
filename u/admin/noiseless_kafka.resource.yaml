@@ -1,0 +1,6 @@
+description: asd
+value:
+  brokers: []
+  security:
+    label: PLAINTEXT
+resource_type: kafka
