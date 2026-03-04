@@ -3,7 +3,7 @@ value:
   fullscreen: false
   grid:
     - '12':
-        fixed: true
+        fixed: false
         fullHeight: false
         h: 2
         w: 12
