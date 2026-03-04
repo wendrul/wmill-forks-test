@@ -5,7 +5,7 @@ value:
     - '12':
         fixed: false
         fullHeight: false
-        h: 10
+        h: 2
         w: 12
         x: 0
         'y': 0
