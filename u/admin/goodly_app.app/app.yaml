@@ -1,6 +1,6 @@
 summary: ''
 value:
-  fullscreen: false
+  fullscreen: true
   grid:
     - '12':
         fixed: false
