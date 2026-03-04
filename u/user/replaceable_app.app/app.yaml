@@ -26,10 +26,64 @@ value:
             class: '!p-0'
             style: ''
         numberOfSubgrids: 1
+    - '12':
+        fixed: false
+        fullHeight: false
+        h: 1
+        w: 2
+        x: 5
+        'y': 6
+      '3':
+        fixed: false
+        fullHeight: false
+        h: 1
+        w: 1
+        x: 0
+        'y': 2
+      id: a
+      data:
+        id: a
+        type: drawercomponent
+        configuration:
+          color:
+            type: static
+            value: blue
+          disabled:
+            type: static
+            value: false
+          drawerTitle:
+            type: static
+            value: Drawer title
+          fillContainer:
+            type: static
+            value: false
+          hideButtonOnView:
+            type: static
+            value: false
+          label:
+            type: static
+            value: Press me
+          size:
+            type: static
+            value: xs
+        customCss:
+          button:
+            class: ''
+            style: ''
+          container:
+            class: ''
+            style: ''
+          drawer:
+            class: ''
+            style: ''
+        horizontalAlignment: center
+        numberOfSubgrids: 1
+        verticalAlignment: center
   hiddenInlineScripts: []
   hideLegacyTopBar: true
   mobileViewOnSmallerScreens: false
   subgrids:
+    a-0: []
     topbar-0:
       - '12':
           fixed: false
