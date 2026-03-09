@@ -2,7 +2,7 @@ name: Windmill Pull Request
 on:
   push:
     branches:
-      - wm_deploy/github-sync-example-staging/**
+      - wm_deploy/**
       - wm-fork/**
 
 env:
