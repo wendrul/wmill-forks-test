@@ -10,6 +10,7 @@ locks:
   f/shared/nicer_flow.flow+inline_script_1.inline_script.ts: d8fe4baf002732b0d9f8e0a8ff66dff348697aa63bf851ffa68b8d8e21f63746
   f/shared/nicer_flow.flow+inline_script_2.inline_script.ts: 5f46c880114c4dca40d639cfac871f000dc1e307093558a98ef72c5ed9a6d86b
   f/shared/praiseworthy_script: 1dad94110de513c98560023f5e90acc5e80487216a24cf77677561519cc8fc43
+  f/shared/praiseworthy_scriptoooo: 400cc0c950dcded859687340dc5dbd2ca6276ff06742df6b447f67280d15d559
   f/tutorial/runs-tutorial-broken-1769093158405.flow+__flow_hash: afd7438496d05dee6275eb03200b17f3aec24b11e3087967d13a38edda554f9e
   f/tutorial/runs-tutorial-broken-1769093158405.flow+throw_error.inline_script.ts: 0dc90cead0440128674a969ad5092e8e68406719d81f849dd24877ee61b52cc3
   f/tutorial/runs-tutorial-flow-1769093158375.flow+__flow_hash: 0cafb404c4c11eb3431162228bb3cf859e9fa0da3dd8d489f4ba6423a2d0f895
