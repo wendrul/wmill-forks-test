@@ -1,9 +1,10 @@
+summary: ''
 description: ''
-format_extension: null
-is_fileset: false
+value:
+  modules: []
+on_behalf_of_email: user@windmill.dev
 schema:
   $schema: 'https://json-schema.org/draft/2020-12/schema'
   type: object
-  order: []
   properties: {}
   required: []
