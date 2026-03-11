@@ -1,0 +1,7 @@
+description: ''
+value:
+  endpoint: 'https://'
+  key: ''
+  project: ''
+  self_signed: ''
+resource_type: appwrite

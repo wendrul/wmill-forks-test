@@ -8,6 +8,8 @@ import * as wmill from "windmill-client"
 // type Postgresql = object
 
 
+
+
 export async function main(
   a: number,
   b: "my" | "enum",

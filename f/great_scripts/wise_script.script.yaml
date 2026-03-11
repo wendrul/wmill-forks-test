@@ -1,8 +1,7 @@
 summary: ''
 description: ''
-lock: '!inline u/admin/complementary_script.script.lock'
+lock: '!inline f/great_scripts/wise_script.script.lock'
 kind: script
-on_behalf_of_email: admin@windmill.dev
 schema:
   $schema: 'https://json-schema.org/draft/2020-12/schema'
   type: object

@@ -1,9 +1,9 @@
 description: >-
   Repository https://github.com/wendrul/wmill-forks-test with permissions
-  fetched using Windmill Github App. 
+  fetched using Windmill Github App.
 value:
   branch: prod
   folder: ''
   is_github_app: true
-  url: 'https://github.com/wendrul/wmill-forks-test'
+  url: '$var:u/admin/insightful_git_repository'
 resource_type: git_repository
