@@ -15,6 +15,7 @@ locks:
   f/tutorial/runs-tutorial-broken-1769093158405.flow+throw_error.inline_script.ts: 0dc90cead0440128674a969ad5092e8e68406719d81f849dd24877ee61b52cc3
   f/tutorial/runs-tutorial-flow-1769093158375.flow+__flow_hash: 0cafb404c4c11eb3431162228bb3cf859e9fa0da3dd8d489f4ba6423a2d0f895
   f/tutorial/runs-tutorial-flow-1769093158375.flow+say_hello.inline_script.ts: 04cd1ee917cdf1206cf08bc9cd16c9a6b32fdea0a1cd8ae0102f208cfd5b0596
+  u/admin/adaptable_script: fb997797fe6d2a18e5361e92781f253bd5ea7a60887f6a03bf5265d5f87f8e59
   u/admin/amiable_script: 896ee2fb6ccf3d26f3f2d2d6be7063803c4962c1a2958ce67cab3540e2ae84f3
   u/admin/amiable_script+896ee2fb6ccf3d26f3f2d2d6be7063803c4962c1a2958ce67cab3540e2ae84f3: 896ee2fb6ccf3d26f3f2d2d6be7063803c4962c1a2958ce67cab3540e2ae84f3
   u/admin/attractive_script: 7b82a1824e86bb9afc6092b19104da0ec958004e16b147bcb2beae39b1a7df26
