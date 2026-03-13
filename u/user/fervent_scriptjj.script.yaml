@@ -1,6 +1,6 @@
 summary: ''
 description: ''
-lock: '!inline u/user/fervent_script.script.lock'
+lock: '!inline u/user/fervent_scriptjj.script.lock'
 kind: script
 schema:
   $schema: https://json-schema.org/draft/2020-12/schema
