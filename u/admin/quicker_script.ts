@@ -35,6 +35,7 @@ async function createWorkspace(workspaceName: string, apiBase: string): Promise<
   console.log("Workspace created");
 }
 
-async function main(workspaceName: string, apiBase: string): Promise<void> {
+export async function main(workspaceName: string): Promise<void> {
+  const apiBase = process.env["WM_BASE_URL"] + ":8000"
   await createWorkspace(workspaceName, apiBase);
 }

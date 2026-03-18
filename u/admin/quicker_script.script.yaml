@@ -6,11 +6,6 @@ schema:
   $schema: https://json-schema.org/draft/2020-12/schema
   type: object
   properties:
-    apiBase:
-      type: string
-      description: ''
-      default: null
-      originalType: string
     workspaceName:
       type: string
       description: ''
@@ -18,4 +13,3 @@ schema:
       originalType: string
   required:
     - workspaceName
-    - apiBase
